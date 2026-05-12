@@ -115,7 +115,6 @@
         /* --- ESTILOS DEL LOGO --- */
         .logo { display: flex; align-items: center; }
         .logo-img { height: 50px; width: auto; transition: var(--transition); }
-        /* Efecto opcional: si el logo es oscuro, hacerlo blanco mientras no se haga scroll */
         nav:not(.scrolled) .logo-img { filter: brightness(0) invert(1); }
 
         .nav-links { display: flex; gap: 2rem; }
@@ -126,6 +125,7 @@
         /* --- HERO SECTION --- */
         .hero {
             height: 100vh;
+            /* SE CAMBIÓ LA IMAGEN AQUÍ */
             background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.8)), url('wallpapper.avif') center/cover;
             display: flex;
             align-items: center;
