@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover Taiwan with a passionate local resident. Private tours, cycling experiences, local food routes, and unforgettable city adventures with Formosa Tours.">
-    <meta name="keywords" content="Formosa Tours, Taipei tours, Taiwan private tours, Taipei bike tours, local guide Taiwan, Spanish guide Taipei, Omar Maciel">
-    <title>Formosa Tours | Discover Taiwan Like a Local</title>
+    <meta name="description" content="Discover Taipei with a passionate local resident. Private tours, cycling experiences, local food routes, and unforgettable city adventures in Taipei.">
+    <meta name="keywords" content="Taipei tours, Taipei private tours, Taipei bike tours, Taipei local guide, Spanish guide Taipei, Russian guide Taipei">
+    <title>Taipei Tours | Discover Taipei Like a Local</title>
     
     <link rel="icon" type="image/png" href="logo.png">
     
@@ -182,6 +182,21 @@
         .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; }
         .form-control { width: 100%; padding: 0.8rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-family: inherit; font-size: 1rem; }
         .form-control:focus { outline: none; border-color: var(--primary); }
+        .urgency { text-align: center; color: #ef4444; font-weight: 600; margin-top: 1.5rem; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+
+        /* --- GALLERY --- */
+        .gallery { padding: 5rem 5%; background: var(--light); }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+        .gallery-item { border-radius: 10px; overflow: hidden; aspect-ratio: 1; cursor: pointer; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        /* --- ABOUT & FAQ --- */
+        .about-faq { padding: 5rem 5%; background: var(--white); display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .about-img { border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+        .gyg-badge { margin: 1.5rem 0; display: block; }
+        details { background: var(--light); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; cursor: pointer; border: 1px solid #e2e8f0; }
+        details p { margin-top: 1rem; color: var(--text-muted); font-size: 0.95rem; }
 
         /* --- FOOTER --- */
         footer { background: var(--dark); color: var(--white); padding: 4rem 5% 2rem; }
@@ -217,6 +232,7 @@
             .form-group.full { grid-column: span 1; }
         }
 
+        /* Animations */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -226,7 +242,7 @@
 <body>
 
     <nav id="navbar">
-        <a href="#" class="logo">Formosa<span>Tours</span></a>
+        <a href="#" class="logo">Taipei<span>Tours</span></a>
         <div class="nav-links">
             <a href="#tours">Tours</a>
             <a href="#the-experience">The Experience</a>
@@ -239,14 +255,14 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Discover Taiwan with Formosa Tours</h1>
-            <p>Private tours, cycling experiences, local food routes, and unforgettable adventures across the island.</p>
+            <h1>Discover Taipei Like a Local</h1>
+            <p>Private tours, cycling experiences, local food routes, and unforgettable city adventures.</p>
             <div class="hero-btns">
                 <a href="#booking" class="btn btn-primary">Book Your Tour Now</a>
-                <a href="https://wa.me/886973253468" target="_blank" class="btn btn-secondary"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+                <a href="https://wa.me/79939576041" target="_blank" class="btn btn-secondary"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
             </div>
             <div class="trust-microcopy">
-                <i class="fas fa-globe-asia"></i> Let's explore Formosa together!
+                <i class="fas fa-globe-asia"></i> Let's explore Taipei together!
             </div>
         </div>
     </section>
@@ -256,29 +272,29 @@
             <div class="trust-item">
                 <i class="fas fa-map-marked-alt"></i>
                 <h4>Passionate Explorer</h4>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Discovering the best of Taiwan with you</p>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Discovering Taipei with you</p>
             </div>
             <div class="trust-item">
                 <i class="fas fa-language"></i>
                 <h4>Multilingual Guide</h4>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Fluent in English & Spanish</p>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">English, Spanish, Russian & Chinese</p>
             </div>
             <div class="trust-item">
                 <i class="fas fa-calendar-check"></i>
                 <h4>Flexible Booking</h4>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">Tailored to your schedule</p>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Free cancellation up to 24h</p>
             </div>
             <div class="trust-item">
                 <i class="fas fa-wallet"></i>
-                <h4>Transparent Pricing</h4>
-                <p style="font-size: 0.9rem; color: var(--text-muted);">No hidden fees, pay in person</p>
+                <h4>Flexible Payment</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">GetYourGuide or Cash in person</p>
             </div>
         </div>
     </section>
 
     <section id="tours" class="tours">
         <h2>Featured Experiences</h2>
-        <p class="section-subtitle">Hand-crafted routes to show you the heart of Formosa.</p>
+        <p class="section-subtitle">Hand-crafted routes to show you the real Taipei.</p>
         
         <div class="tours-grid">
             <div class="tour-card">
@@ -288,11 +304,10 @@
                         <span><i class="far fa-clock"></i> 4 Hours</span>
                         <span><i class="fas fa-subway"></i> Subway</span>
                     </div>
-                    <h3 class="tour-title">Taipei City Highlights</h3>
-                    <p class="tour-desc">Visit Taipei 101, Chiang Kai-shek Memorial Hall, Ximending and Longshan Temple with me.</p>
-                    <div class="tour-price">$69 USD / 2150 NTD</div>
-                    <a href="#booking" class="btn btn-primary">Book Now</a>
-                </div>
+<h3 class="tour-title">Taipei City Highlights</h3>
+<p class="tour-desc">Visit Taipei 101, Chiang Kai-shek Memorial Hall, Ximending and Longshan Temple with me.</p>
+<div class="tour-price">$69 USD / 2150 NTD</div>
+<a href="taipei-city-highlights.html" class="btn btn-primary">Ver Detalles</a>
             </div>
             
             <div class="tour-card">
@@ -300,24 +315,24 @@
                 <div class="tour-content">
                     <div class="tour-meta">
                         <span><i class="far fa-clock"></i> 4 Hours</span>
-                        <span><i class="fas fa-utensils"></i> Foodie</span>
+                        <span><i class="fas fa-subway"></i> Subway</span>
                     </div>
                     <h3 class="tour-title">Night Market Food Tour</h3>
-                    <p class="tour-desc">Taste Taiwan’s best street food. From Michelin snacks to the most authentic local flavors.</p>
+                    <p class="tour-desc">Taste Taipei’s best street food at Raohe, Ningxia, and Shilin Night Markets — from stinky tofu to Michelin Bib Gourmand snacks and bubble tea.</p>
                     <div class="tour-price">$69 USD / 2150 NTD</div>
                     <a href="#booking" class="btn btn-primary">Reserve Spot</a>
                 </div>
             </div>
 
             <div class="tour-card">
-                <img src="20260327_182015.jpg" alt="Cycling Experience" class="tour-img">
+                <img src="20260327_182015.jpg" alt="Cycling Taipei Experience" class="tour-img">
                 <div class="tour-content">
                     <div class="tour-meta">
                         <span><i class="far fa-clock"></i> 4 Hours</span>
                         <span><i class="fas fa-bicycle"></i> Active</span>
                     </div>
                     <h3 class="tour-title">Cycling Riverside & City</h3>
-                    <p class="tour-desc">Explore hidden alleys and beautiful riverside views on two wheels.</p>
+                    <p class="tour-desc">Ride along the beautiful Tamsui River, exploring hidden alleys, historic Dihua Street, Xingtian Temple, Fortune Telling Street, Dadaocheng, Ximending, and Longshan Temple.</p>
                     <div class="tour-price">$69 USD / 2150 NTD</div>
                     <a href="#booking" class="btn btn-primary">Reserve Spot</a>
                 </div>
@@ -331,55 +346,138 @@
                         <span><i class="fas fa-sliders-h"></i> Customizable</span>
                     </div>
                     <h3 class="tour-title">Custom Private Tour</h3>
-                    <p class="tour-desc">Your trip, your rules. We design the perfect itinerary together based on your interests.</p>
+                    <p class="tour-desc">Designed at your request. Whether you want a half-day, full-day, or multiple-day tour, we will build the perfect itinerary together.</p>
                     <div class="tour-price">Price TBD</div>
-                    <a href="#booking" class="btn btn-primary">Plan Your Trip</a>
+                    <a href="#booking" class="btn btn-primary">Reserve Spot</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="the-experience" class="why-us">
+        <h2>Why Travel With a Local Guide?</h2>
+        <p class="section-subtitle" style="color: #cbd5e1;">I don't just show you Taipei; I share my journey with you.</p>
+        
+        <div class="why-grid">
+            <div class="why-card">
+                <i class="fas fa-compass"></i>
+                <h4>Fresh Perspective</h4>
+                <p>I share the spots I've fallen in love with as an expat exploring this amazing city.</p>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-user-friends"></i>
+                <h4>Personalized Experience</h4>
+                <p>No large bus groups. Every tour is tailored to your pace and interests.</p>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-comments"></i>
+                <h4>Easy Communication</h4>
+                <p>Book and chat directly with me via WhatsApp or Telegram anytime.</p>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-route"></i>
+                <h4>Flexible Routes</h4>
+                <p>Want to stay longer at a temple or skip a museum? You're the boss.</p>
             </div>
         </div>
     </section>
 
     <section id="booking" class="booking">
         <h2>Ready for an Adventure?</h2>
-        <p class="section-subtitle">Send me a message to start planning your perfect Taiwan experience.</p>
+        <p class="section-subtitle">Fill out the form below or message me directly. I will reply as soon as possible.</p>
         
         <div class="booking-container">
             <form action="https://formsubmit.co/arielmaidana1997@gmail.com" method="POST" class="booking-form">
-                <input type="hidden" name="_subject" value="New Formosa Tours Booking!">
+                
+                <input type="hidden" name="_subject" value="New Tour Booking Request!">
+                <input type="hidden" name="_captcha" value="false">
+
                 <div class="form-group">
                     <label>Full Name *</label>
-                    <input type="text" name="Name" class="form-control" required placeholder="Your Name">
+                    <input type="text" name="Name" class="form-control" required placeholder="John Doe">
                 </div>
                 <div class="form-group">
                     <label>Email Address *</label>
-                    <input type="email" name="Email" class="form-control" required placeholder="Email">
+                    <input type="email" name="Email" class="form-control" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label>WhatsApp Number (with country code)</label>
+                    <input type="tel" name="WhatsApp" class="form-control" placeholder="+1 234 567 8900">
+                </div>
+                <div class="form-group">
+                    <label>Preferred Date *</label>
+                    <input type="date" name="Date" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Number of People *</label>
+                    <input type="number" name="People" min="1" class="form-control" required placeholder="2">
+                </div>
+                <div class="form-group">
+                    <label>Select Tour *</label>
+                    <select name="Tour" class="form-control" required>
+                        <option value="">Choose a tour...</option>
+                        <option value="Taipei City Highlights">Taipei City Highlights</option>
+                        <option value="Night Market Food Tour">Night Market Food Tour</option>
+                        <option value="Cycling Riverside & City">Cycling Riverside & City</option>
+                        <option value="Custom Private Tour">Custom Private Tour</option>
+                    </select>
                 </div>
                 <div class="form-group full">
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Contact Me</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Secure My Booking</button>
                 </div>
             </form>
         </div>
     </section>
 
-    <section id="about" class="about-faq" style="padding: 5rem 5%; background: var(--white); display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+    <section id="gallery" class="gallery">
+        <h2>Moments in TaipeiTours</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="20260101_000057.jpg" alt="Taipei Moment 1"></div>
+            <div class="gallery-item"><img src="20250921_153925.jpg" alt="Taipei Moment 2"></div>
+            <div class="gallery-item"><img src="20260316_183410.jpg" alt="Taipei Moment 3"></div>
+            <div class="gallery-item"><img src="20250915_162758.jpg" alt="Taipei Moment 4"></div>
+        </div>
+    </section>
+
+    <section id="about" class="about-faq">
         <div>
-            <h2>Hi, I'm Omar Maciel</h2>
-            <p class="section-subtitle" style="text-align: left; margin-bottom: 1.5rem;">Founder of Formosa Tours</p>
-            <img src="foto-omar.png" alt="Omar Maciel" class="about-img" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 1.5rem;">
+            <h2>Hi, I'm Ariel</h2>
+            <p class="section-subtitle" style="text-align: left; margin-bottom: 1.5rem;">Your Tour Guide</p>
+            <img src="fotoariel.png" alt="Ariel Maidana" class="about-img">
             
-            <p style="margin-bottom: 1rem;">Welcome to Taiwan! I'm Omar, and I'm dedicated to showing visitors the authentic beauty of this island through <strong>Formosa Tours</strong>.</p>
-            <p>I believe that the best way to see a country is through the eyes of someone who loves its culture and its streets. Whether we are walking through historic temples or biking along the river, I'm here to make sure you have an unforgettable experience.</p>
+            <div class="gyg-badge">
+                <a href="https://www.getyourguide.com/-s736113" target="_blank">
+                    <img src="https://gyg.me/kUtga42u" width="160px" height="auto" style="border: 1px solid #c6c8d0" alt="GetYourGuide | Taipei Tours" />
+                </a>
+            </div>
+
+            <p style="margin-bottom: 1rem;">I'm originally from Argentina, where I completed my bachelor's degree and worked in banking for five years. My passion for adventure led me to St. Petersburg, Russia, to earn my master's degree, and eventually to Taipei, where I am currently dedicated to mastering Chinese.</p>
+            <p>As an international student and traveler, I understand the excitement and challenges of arriving in a new place. I'm thrilled to share the hidden gems I've discovered and help you experience the vibrant culture, food, and urban life of Taipei. Let’s explore this amazing city together on a walk or a bike ride!</p>
         </div>
         
         <div>
-            <h2>FAQ</h2>
-            <details style="background: var(--light); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; cursor: pointer;">
-                <summary>How do I book? <i class="fas fa-chevron-down"></i></summary>
-                <p>Fill out the form or send me a WhatsApp message. We will confirm the date and itinerary together.</p>
+            <h2>Frequently Asked Questions</h2>
+            <p class="section-subtitle" style="text-align: left; margin-bottom: 1.5rem;">Everything you need to know.</p>
+            
+            <details>
+                <summary>How do I book a tour? <i class="fas fa-chevron-down"></i></summary>
+                <p>Simply fill out the booking form on this page or message me directly on WhatsApp/Telegram. I will confirm availability and send you a GetYourGuide link to pay securely online, or we can arrange for you to pay in cash when we meet.</p>
             </details>
-            <details style="background: var(--light); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; cursor: pointer;">
-                <summary>Are tours available in Spanish? <i class="fas fa-chevron-down"></i></summary>
-                <p>Yes! I provide tours in both English and Spanish to ensure you don't miss any details.</p>
+            <details>
+                <summary>What is your cancellation policy? <i class="fas fa-chevron-down"></i></summary>
+                <p>If you book through GetYourGuide, their standard cancellation policy applies. If you choose to pay in cash in person, I kindly ask that you let me know at least 24 hours in advance if you need to cancel so I can adjust my schedule. I want your travel planning to be stress-free!</p>
+            </details>
+            <details>
+                <summary>What payment methods do you accept? <i class="fas fa-chevron-down"></i></summary>
+                <p>You can pay securely online using credit cards via GetYourGuide, or you can choose to pay the total in cash on the day of our tour.</p>
+            </details>
+            <details>
+                <summary>Are private tours available? <i class="fas fa-chevron-down"></i></summary>
+                <p>Yes! All my featured tours are private, and I also offer fully customized itineraries based on your specific interests.</p>
+            </details>
+            <details>
+                <summary>What languages do you offer? <i class="fas fa-chevron-down"></i></summary>
+                <p>I conduct tours fluently in English, Spanish, and Russian, plus Chinese to keep things running smoothly with the locals.</p>
             </details>
         </div>
     </section>
@@ -387,31 +485,45 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-col footer-col-center">
-                <a href="#" class="logo" style="font-size: 2.2rem;">Formosa<span>Tours</span></a>
-                <p style="margin-top: 1rem; color: #94a3b8;">Experience the true spirit of Taiwan with Omar Maciel.</p>
+                <a href="#" class="logo" style="font-size: 2.2rem;">Taipei<span>Tours</span></a>
+                <p style="margin-top: 1rem; color: #94a3b8; max-width: 300px; margin-left: auto; margin-right: auto;">Experience the true spirit of Taiwan with an enthusiastic expat.</p>
             </div>
             <div class="footer-col">
-                <h4>Contact Info</h4>
+                <h4>Contact Me</h4>
                 <ul>
+                    <li><i class="fas fa-envelope"></i> arielmaidana1997@gmail.com</li>
                     <li><i class="fas fa-phone"></i> +886 973 253 468</li>
-                    <li><i class="fab fa-whatsapp"></i> WhatsApp Contact</li>
+                    <li><i class="fab fa-whatsapp"></i> +7 993 957 6041 (WhatsApp)</li>
+                    <li><i class="fab fa-telegram"></i> @armaidana (Telegram)</li>
                 </ul>
             </div>
         </div>
         <div class="copyright">
-            &copy; 2026 Formosa Tours by Omar Maciel. All rights reserved.
+            &copy; 2026 Taipei Tours by Ariel Maidana. All rights reserved.
         </div>
     </footer>
 
-    <a href="https://wa.me/886973253468" target="_blank" class="float-btn float-wa" title="Chat on WhatsApp">
+    <a href="https://t.me/armaidana" target="_blank" class="float-btn float-tg" title="Chat on Telegram">
+        <i class="fab fa-telegram-plane"></i>
+    </a>
+    <a href="https://wa.me/79939576041" target="_blank" class="float-btn float-wa" title="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
+        // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Simple Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', () => {
+            alert('Navigation menu would drop down here on mobile!');
         });
     </script>
 </body>
