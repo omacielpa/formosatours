@@ -160,7 +160,14 @@
             transition: var(--transition);
         }
         .tour-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .tour-img { height: 200px; width: 100%; object-fit: cover; }
+        
+        /* Ajuste de portadas más cuadradas */
+        .tour-img { 
+            height: 250px; /* Incrementado para ser más cuadrada */
+            width: 100%; 
+            object-fit: cover; 
+        }
+        
         .tour-content { padding: 1.5rem; }
         .tour-meta { display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; font-weight: 500;}
         .tour-title { font-size: 1.3rem; margin-bottom: 0.5rem; }
@@ -290,7 +297,7 @@
                 <a href="#booking" class="btn btn-primary">Book Your Tour Now</a>
                 <a href="https://wa.me/523312563254" target="_blank" class="btn btn-secondary"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
             </div>
-            <div class="trust-microcopy"><i class="fas fa-globe-asia"></i> Let's explore Formosa together!</div>
+            <div class="trust-microcopy"><i class="fas fa-globe-asia"></i> Let's explore Taipei together!</div>
         </div>
     </section>
 
@@ -317,7 +324,7 @@
                 </div>
             </div>
             <div class="tour-card">
-                <img src="1-custom.jpg" alt="Night Market Food Tour" class="tour-img">
+                <img src="1-foodtour.jpg" alt="Night Market Food Tour" class="tour-img">
                 <div class="tour-content">
                     <div class="tour-meta"><span><i class="far fa-clock"></i> 4 Hours</span><span><i class="fas fa-subway"></i> Subway</span></div>
                     <h3 class="tour-title">Night Market Food Tour</h3>
