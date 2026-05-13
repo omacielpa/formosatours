@@ -161,7 +161,6 @@
         }
         .tour-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
         
-        /* Ajuste de portadas más cuadradas (Proporción 4:3 aprox) */
         .tour-img { 
             height: 280px; 
             width: 100%; 
@@ -192,13 +191,11 @@
         .form-control { width: 100%; padding: 0.8rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-family: inherit; font-size: 1rem; }
         .form-control:focus { outline: none; border-color: var(--primary); }
 
-        /* --- GALLERY COLLAGE --- */
+        /* --- GALLERY OPTIMIZED --- */
         .gallery { padding: 5rem 5%; background: var(--light); }
         .gallery-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-            grid-auto-rows: 200px;
-            grid-auto-flow: dense;
+            grid-template-columns: repeat(4, 1fr); 
             gap: 15px; 
         }
         .gallery-item { 
@@ -206,15 +203,19 @@
             overflow: hidden; 
             cursor: zoom-in; 
             position: relative;
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            aspect-ratio: 1 / 1; 
+            transition: var(--transition);
         }
-        .gallery-item:nth-child(3n) { grid-column: span 2; }
-        .gallery-item:nth-child(5n) { grid-row: span 2; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .gallery-item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.6s ease; 
+        }
         .gallery-item:hover { transform: scale(1.02); z-index: 2; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
         .gallery-item:hover img { transform: scale(1.1); }
 
-        /* --- LIGHTBOX (EXPAND) --- */
+        /* --- LIGHTBOX --- */
         #lightbox {
             position: fixed;
             top: 0; left: 0;
@@ -257,6 +258,9 @@
         .float-btn:hover { transform: scale(1.1); }
 
         /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+        }
         @media (max-width: 900px) {
             .about-faq { grid-template-columns: 1fr; }
             .hero h1 { font-size: 3rem; }
@@ -268,7 +272,10 @@
             .hero h1 { font-size: 2.5rem; }
             .booking-form { grid-template-columns: 1fr; }
             .form-group.full { grid-column: span 1; }
-            .gallery-item:nth-child(n) { grid-column: span 1; grid-row: span 1; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .gallery-grid { grid-template-columns: 1fr; }
         }
 
         @keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
@@ -380,10 +387,7 @@
                 <div class="form-group"><label>Select Tour *</label>
                     <select name="Tour" class="form-control" required>
                         <option value="">Choose a tour...</option>
-                        <option value="Taipei City Highlights">Taipei City Highlights</option>
-                        <option value="Night Market Food Tour">Night Market Food Tour</option>
-                        <option value="Cycling Riverside & City">Cycling Riverside & City</option>
-                        <option value="Custom Private Tour">Custom Private Tour</option>
+                        <option value="Taipei City Highlights">Taipei City Highlights</option> <option value="Night Market Food Tour">Night Market Food Tour</option> <option value="Cycling Riverside & City">Cycling Riverside & City</option> <option value="Custom Private Tour">Custom Private Tour</option>
                     </select>
                 </div>
                 <div class="form-group full"><button type="submit" class="btn btn-primary" style="width: 100%;">Secure My Booking</button></div>
@@ -399,9 +403,7 @@
             <div class="gallery-item" onclick="openLightbox(this)"><img src="gallery-2.jpg" alt="Moment 2"></div>
             <div class="gallery-item" onclick="openLightbox(this)"><img src="gallery-3.jpg" alt="Moment 3"></div>
             <div class="gallery-item" onclick="openLightbox(this)"><img src="gallery-4.jpg" alt="Moment 4"></div>
-            <div class="gallery-item" onclick="openLightbox(this)"><img src="gallery-4-2.jpg" alt="Moment 4-2"></div>
             <div class="gallery-item" onclick="openLightbox(this)"><img src="gallery-5.jpg" alt="Moment 5"></div>
-            <div class="gallery-item" onclick="openLightbox(this)"><img src="gallery-5-5.JPG" alt="Moment 5-5"></div>
             <div class="gallery-item" onclick="openLightbox(this)"><img src="gallery-6.jpg" alt="Moment 6"></div>
             <div class="gallery-item" onclick="openLightbox(this)"><img src="gallery-7.jpg" alt="Moment 7"></div>
             <div class="gallery-item" onclick="openLightbox(this)"><img src="gallery-8.jpg" alt="Moment 8"></div>
@@ -411,6 +413,7 @@
             <div class="gallery-item" onclick="openLightbox(this)"><img src="gallery-12.jpg" alt="Moment 12"></div>
             <div class="gallery-item" onclick="openLightbox(this)"><img src="gallery-13.jpg" alt="Moment 13"></div>
             <div class="gallery-item" onclick="openLightbox(this)"><img src="gallery-14.jpg" alt="Moment 14"></div>
+            <div class="gallery-item" onclick="openLightbox(this)"><img src="gallery-15.jpg" alt="Moment 15"></div>
         </div>
     </section>
 
@@ -421,7 +424,6 @@
             <h2>Hi, I'm Alejandro Maciel</h2>
             <p class="section-subtitle" style="text-align: left; margin-bottom: 1.5rem;">Your Tour Guide</p>
             <img src="profile.jpg" alt="Alejandro Maciel" class="about-img">
-            
             <div class="gyg-badge">
                 <a style="cursor: default; opacity: 0.7; pointer-events: none;">
                     <img src="https://gyg.me/kUtga42u" width="160px" style="border: 1px solid #c6c8d0" alt="GetYourGuide" />
@@ -429,7 +431,6 @@
             </div>
             <p>Mexican tour guide based in Taiwan, passionate about sharing the island through local eyes and genuine cultural experiences. After falling in love with Taiwanese culture, traditions, and landscapes, I like to help travelers discover the real Taiwan with warmth, adventure, and a personal touch.</p>
         </div>
-        
         <div>
             <h2>Frequently Asked Questions</h2>
             <details><summary>How do I book? <i class="fas fa-chevron-down"></i></summary><p>Fill out the form or message me on WhatsApp. I'll confirm availability and send a payment link.</p></details>
