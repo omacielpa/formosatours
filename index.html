@@ -133,7 +133,6 @@
         }
         .hero-content { max-width: 800px; color: var(--white); animation: fadeInUp 1s ease; }
         
-        /* Ajuste Discover Taipei con inclinación ascendente */
         .hero h1 .cursive-text {
             font-family: 'Water Brush', cursive;
             font-size: 7.5rem;
@@ -141,19 +140,19 @@
             display: block;
             line-height: 1;
             margin-bottom: 0.5rem;
-            transform: skewY(-4deg) rotate(-2deg); /* Inclinación ascendente sutil */
+            transform: skewY(-4deg) rotate(-2deg); 
         }
         
-        /* Ajuste as a local (Poppins, tamaño equilibrado) */
+        /* AS A LOCAL: Blanco, Bold y Grande */
         .hero h1 .local-text {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.8rem; 
+            font-size: 2.2rem; 
             text-transform: uppercase;
-            letter-spacing: 8px;
-            font-weight: 300;
+            letter-spacing: 6px;
+            font-weight: 700;
             display: block;
-            opacity: 0.9;
-            margin-top: 10px;
+            color: var(--white);
+            margin-top: 5px;
         }
 
         .hero p { font-size: 1.2rem; margin-bottom: 2.5rem; font-weight: 300; }
@@ -259,15 +258,21 @@
             animation: zoomIn 0.3s ease;
         }
 
-        /* --- ABOUT --- */
-        .about-faq { padding: 5rem 5%; background: var(--white); display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        /* --- ABOUT (Bio con texto a la derecha) --- */
+        .about-faq { padding: 5rem 5%; background: var(--white); display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: start; }
+        
+        .bio-container { display: flex; align-items: flex-start; gap: 2rem; flex-wrap: wrap; }
+        
         .about-img { 
             border-radius: 20px; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-            margin-bottom: 1.5rem; 
-            width: 140px; /* Foto más pequeña como pediste */
+            width: 220px; /* Foto más grande */
+            flex-shrink: 0;
         }
-        .gyg-badge { margin: 1.5rem 0; display: block; }
+        
+        .bio-text { flex: 1; min-width: 250px; }
+
+        .gyg-badge { margin: 1rem 0; display: block; }
         details { background: var(--light); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; cursor: pointer; border: 1px solid #e2e8f0; }
         details p { margin-top: 1rem; color: var(--text-muted); font-size: 0.95rem; }
 
@@ -299,10 +304,11 @@
             .nav-links { display: none; }
             .mobile-menu { display: block; }
             .hero h1 .cursive-text { font-size: 4rem; }
-            .hero h1 .local-text { font-size: 1.2rem; letter-spacing: 4px; }
+            .hero h1 .local-text { font-size: 1.5rem; letter-spacing: 4px; }
             .booking-form { grid-template-columns: 1fr; }
             .form-group.full { grid-column: span 1; }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .bio-container { justify-content: center; text-align: center; }
         }
         @media (max-width: 480px) {
             .gallery-grid { grid-template-columns: 1fr; }
@@ -453,16 +459,18 @@
     <div id="lightbox" onclick="closeLightbox()"><img id="lightbox-img" src="" alt="Expanded Image"></div>
 
     <section id="about" class="about-faq">
-        <div>
-            <h2>Hi, I'm Alejandro Maciel</h2>
-            <p class="section-subtitle" style="text-align: left; margin-bottom: 1.5rem;">Your Tour Guide</p>
+        <div class="bio-container">
             <img src="profile.jpg" alt="Alejandro Maciel" class="about-img">
-            <div class="gyg-badge">
-                <a style="cursor: default; opacity: 0.7; pointer-events: none;">
-                    <img src="https://gyg.me/kUtga42u" width="160px" style="border: 1px solid #c6c8d0" alt="GetYourGuide" />
-                </a>
+            <div class="bio-text">
+                <h2>Hi, I'm Alejandro Maciel</h2>
+                <p class="section-subtitle" style="text-align: left; margin-bottom: 1rem;">Your Tour Guide</p>
+                <div class="gyg-badge">
+                    <a style="cursor: default; opacity: 0.7; pointer-events: none;">
+                        <img src="https://gyg.me/kUtga42u" width="160px" style="border: 1px solid #c6c8d0" alt="GetYourGuide" />
+                    </a>
+                </div>
+                <p>Mexican tour guide based in Taiwan, passionate about sharing the island through local eyes and genuine cultural experiences. After falling in love with Taiwanese culture, traditions, and landscapes, I like to help travelers discover the real Taiwan with warmth, adventure, and a personal touch.</p>
             </div>
-            <p>Mexican tour guide based in Taiwan, passionate about sharing the island through local eyes and genuine cultural experiences. After falling in love with Taiwanese culture, traditions, and landscapes, I like to help travelers discover the real Taiwan with warmth, adventure, and a personal touch.</p>
         </div>
         <div>
             <h2>Frequently Asked Questions</h2>
