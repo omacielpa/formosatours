@@ -121,7 +121,7 @@
         .nav-links a:hover { color: var(--primary); }
         .mobile-menu { display: none; font-size: 1.5rem; color: var(--white); cursor: pointer; }
 
-        /* --- HERO SECTION WITH SLIDESHOW --- */
+        /* --- HERO SECTION WITH TRUE SLIDESHOW FADE --- */
         .hero {
             height: 100vh;
             position: relative;
@@ -131,38 +131,45 @@
             text-align: center;
             padding: 0 5%;
             overflow: hidden;
+            background-color: var(--dark); /* Fondo negro de respaldo */
         }
         
-        .hero::before, .hero::after {
+        /* Capa superior fija para el degradado oscuro original */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.8));
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Capa base para los fondos animados */
+        .hero::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             background-position: center;
             background-size: cover;
-            z-index: -1;
-        }
-
-        /* Capa fija superior para mantener el degradado exacto */
-        .hero::after {
-            background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.8));
-            z-index: -1;
-        }
-
-        /* Animación del fondo con intervalos de 5 segundos por imagen (25s total) */
-        .hero::before {
+            z-index: 0;
             animation: heroSlideshow 25s infinite ease-in-out;
         }
 
+        /* Animación con transiciones de desvanecimiento (fade) calculadas para 5 imágenes */
         @keyframes heroSlideshow {
             0%, 16% { background-image: url('wallpaper-1.avif'); opacity: 1; }
-            20%, 36% { background-image: url('wallpaper-2.avif'); opacity: 1; }
-            40%, 56% { background-image: url('wallpaper-3.avif'); opacity: 1; }
-            60%, 76% { background-image: url('wallpaper-4.avif'); opacity: 1; }
-            80%, 96% { background-image: url('wallpaper-5.avif'); opacity: 1; }
-            100% { background-image: url('wallpaper-1.avif'); opacity: 1; }
+            20% { opacity: 0; } /* Suaviza el cambio desvaneciendo a negro momentáneamente */
+            21%, 36% { background-image: url('wallpaper-2.avif'); opacity: 1; }
+            40% { opacity: 0; }
+            41%, 56% { background-image: url('wallpaper-3.avif'); opacity: 1; }
+            60% { opacity: 0; }
+            61%, 76% { background-image: url('wallpaper-4.avif'); opacity: 1; }
+            80% { opacity: 0; }
+            81%, 96% { background-image: url('wallpaper-5.avif'); opacity: 1; }
+            100% { opacity: 0; background-image: url('wallpaper-1.avif'); }
         }
 
-        .hero-content { max-width: 800px; color: var(--white); animation: fadeInUp 1s ease; position: relative; z-index: 1; }
+        .hero-content { max-width: 800px; color: var(--white); animation: fadeInUp 1s ease; position: relative; z-index: 2; }
 
         .hero h1 .cursive-text {
             font-family: 'Water Brush', cursive;
