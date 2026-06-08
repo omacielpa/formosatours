@@ -1,3 +1,8 @@
+Aquí tienes el código completamente rediseñado. He sustituido los tonos oscuros y azulados por una paleta elegante basada en verdes profundos y orgánicos que combinan a la perfección con la identidad de tu logotipo.
+
+Además, actualicé las rutas de las imágenes de la galería (`taipei-hl-1.jpg` a `taipei-hl-8.jpg`, manteniendo el total de 8 imágenes que tenías), removí los idiomas ruso y chino dejando únicamente español e inglés, y le di un diseño mucho más dinámico y fluido a la cuadrícula de fotos mediante el uso de efectos de escala y sombreados más orgánicos.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,18 +19,19 @@
         :root {
             --primary: #F59E0B;
             --primary-hover: #D97706;
-            --dark: #0F172A;
-            --light: #F8FAFC;
+            --dark: #064E3B; /* Cambiado a un verde oscuro profundo y elegante */
+            --dark-muted: #14532D;
+            --light: #F0FDF4; /* Fondo claro con un ligero toque verde orgánico */
             --white: #FFFFFF;
-            --text-main: #334155;
-            --text-muted: #64748B;
+            --text-main: #1F2937;
+            --text-muted: #4B5563;
             --wa-color: #25D366;
-            --transition: all 0.3s ease;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { color: var(--text-main); background-color: var(--light); line-height: 1.6; }
-        img { max-width: 100%; display: block; border-radius: 10px; }
+        img { max-width: 100%; display: block; border-radius: 12px; }
         a { text-decoration: none; color: inherit; }
         h1, h2, h3, h4 { color: var(--dark); font-weight: 700; line-height: 1.2; margin-bottom: 1rem; }
 
@@ -35,38 +41,51 @@
         .btn-primary:hover { background-color: var(--primary-hover); transform: translateY(-2px); }
 
         /* --- NAVBAR --- */
-        nav { background-color: var(--white); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        nav { background-color: var(--white); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(6, 78, 59, 0.05); position: sticky; top: 0; z-index: 1000; }
         .logo-img { height: 50px; width: auto; }
         .nav-links { display: flex; gap: 2rem; align-items: center; }
         .nav-links a { color: var(--text-main); font-weight: 500; transition: var(--transition); }
-        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover { color: var(--dark); }
 
         /* --- TOUR HEADER --- */
-        .tour-header { padding: 4rem 5%; background: var(--dark); color: var(--white); text-align: center; }
+        .tour-header { padding: 4rem 5%; background: linear-gradient(135deg, var(--dark), var(--dark-muted)); color: var(--white); text-align: center; }
         .tour-header h1 { color: var(--white); font-size: 2.5rem; margin-bottom: 1rem; }
-        .tour-header p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; color: #cbd5e1; }
+        .tour-header p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; color: #D1FAE5; }
 
         /* --- MAIN LAYOUT --- */
         .tour-container { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; padding: 4rem 5%; max-width: 1200px; margin: 0 auto; }
-        .tour-content section { margin-bottom: 3rem; background: var(--white); padding: 2rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        .tour-content section { margin-bottom: 3rem; background: var(--white); padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(6, 78, 59, 0.02); }
         
-        /* --- IMAGE GALLERY --- */
+        /* --- GALERÍA DINÁMICA Y ORGÁNICA --- */
         .image-gallery { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-            gap: 1rem; 
-            margin-bottom: 2rem; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 1.2rem; 
+            margin-bottom: 2.5rem; 
+        }
+        .image-gallery .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(6, 78, 59, 0.08);
+            transition: var(--transition);
         }
         .image-gallery img {
             width: 100%;
-            height: 180px;
+            height: 190px;
             object-fit: cover;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+        .image-gallery .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(6, 78, 59, 0.15);
+        }
+        .image-gallery .gallery-item:hover img {
+            transform: scale(1.08);
         }
 
         /* --- QUICK INFO --- */
         .quick-info { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2rem; }
-        .info-badge { display: flex; align-items: center; gap: 0.5rem; background: var(--light); padding: 0.8rem 1.2rem; border-radius: 10px; font-weight: 500; font-size: 0.95rem; }
+        .info-badge { display: flex; align-items: center; gap: 0.5rem; background: var(--light); padding: 0.8rem 1.2rem; border-radius: 10px; font-weight: 500; font-size: 0.95rem; color: var(--dark); }
         .info-badge i { color: var(--primary); font-size: 1.2rem; }
 
         /* --- LISTS --- */
@@ -86,17 +105,17 @@
 
         /* --- SIDEBAR --- */
         .sidebar { position: sticky; top: 100px; }
-        .booking-card { background: var(--white); padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center; border-top: 5px solid var(--primary); }
+        .booking-card { background: var(--white); padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(6, 78, 59, 0.06); text-align: center; border-top: 5px solid var(--primary); }
 
         /* --- FOOTER --- */
-        footer { background: #f1f5f9; color: var(--dark); padding: 4rem 5% 2rem; border-top: 1px solid #e2e8f0; }
+        footer { background: #E8F5E9; color: var(--dark); padding: 4rem 5% 2rem; border-top: 1px solid #C8E6C9; }
         .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem; align-items: center; }
         .footer-col-center { text-align: center; }
-        .footer-col h4 { margin-bottom: 1.5rem; color: var(--primary); }
+        .footer-col h4 { margin-bottom: 1.5rem; color: var(--dark); }
         .footer-col ul { list-style: none; }
         .footer-col ul li { margin-bottom: 0.8rem; color: var(--text-main); }
         .footer-col ul li i { margin-right: 10px; color: var(--primary); }
-        .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.05); font-size: 0.9rem; color: var(--text-muted); }
+        .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(6, 78, 59, 0.1); font-size: 0.9rem; color: var(--text-muted); }
 
         /* --- FLOATING BUTTON --- */
         .float-btn { position: fixed; bottom: 20px; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; color: var(--white); box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 100; transition: var(--transition); }
@@ -130,14 +149,14 @@
         <div class="tour-content">
             
             <div class="image-gallery">
-                <img src="20260113_153347.jpg" alt="Chiang Kai-shek Memorial Hall - Taipei Tour">
-                <img src="20251203_193616.jpg" alt="Taipei 101 at night - Taipei Tour">
-                <img src="1-hl-tour.jpg" alt="Taipei City Highlights">
-                <img src="gallery-1.jpg" alt="Taipei Street View - Taipei Tour">
-                <img src="20250915_163600.jpg" alt="Liberty Square Gate - Taipei Tour">
-                <img src="gallery-6.jpg" alt="Longshan Temple interior - Taipei Tour">
-                <img src="gallery-7.jpg" alt="Longshan Temple entrance - Taipei Tour">
-                <img src="gallery-15.jpg" alt="Taipei Tour Highlights">
+                <div class="gallery-item"><img src="taipei-hl-1.jpg" alt="Chiang Kai-shek Memorial Hall - Taipei Tour"></div>
+                <div class="gallery-item"><img src="taipei-hl-2.jpg" alt="Taipei 101 at night - Taipei Tour"></div>
+                <div class="gallery-item"><img src="taipei-hl-3.jpg" alt="Taipei City Highlights"></div>
+                <div class="gallery-item"><img src="taipei-hl-4.jpg" alt="Taipei Street View - Taipei Tour"></div>
+                <div class="gallery-item"><img src="taipei-hl-5.jpg" alt="Liberty Square Gate - Taipei Tour"></div>
+                <div class="gallery-item"><img src="taipei-hl-6.jpg" alt="Longshan Temple interior - Taipei Tour"></div>
+                <div class="gallery-item"><img src="taipei-hl-7.jpg" alt="Longshan Temple entrance - Taipei Tour"></div>
+                <div class="gallery-item"><img src="taipei-hl-8.jpg" alt="Taipei Tour Highlights"></div>
             </div>
 
             <section>
@@ -145,7 +164,7 @@
                 <div class="quick-info">
                     <div class="info-badge"><i class="far fa-clock"></i> Duration: 4 hours</div>
                     <div class="info-badge"><i class="fas fa-user-tie"></i> Live tour guide</div>
-                    <div class="info-badge"><i class="fas fa-language"></i> Spanish, English, Russian</div>
+                    <div class="info-badge"><i class="fas fa-language"></i> Spanish, English</div>
                     <div class="info-badge"><i class="fas fa-users"></i> Private group</div>
                 </div>
             </section>
@@ -176,7 +195,7 @@
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-time">Starting Location</div>
-                        <div class="timeline-title">Taipei 101</div>
+                        <div class="timeline-title">Alternative 101</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-time">45 minutes</div>
@@ -300,3 +319,5 @@
 
 </body>
 </html>
+
+```
