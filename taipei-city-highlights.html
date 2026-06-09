@@ -41,10 +41,17 @@
         .nav-links a { color: var(--text-main); font-weight: 500; transition: var(--transition); }
         .nav-links a:hover { color: var(--primary); }
 
-        /* --- TOUR HEADER --- */
-        .tour-header { padding: 4rem 5%; background: var(--dark); color: var(--white); text-align: center; }
-        .tour-header h1 { color: var(--white); font-size: 2.5rem; margin-bottom: 1rem; }
-        .tour-header p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; color: #cbd5e1; }
+        /* --- TOUR HEADER (Cambiado a Verde y Fuente Estilo Discover Taipei) --- */
+        .tour-header { padding: 4rem 5%; background: var(--wa-color); color: var(--white); text-align: center; }
+        .tour-header h1 { 
+            color: var(--white); 
+            font-size: 2.2rem; /* Ligeramente más pequeño para ajustarse al contenedor */
+            font-weight: 700;
+            font-style: italic; /* Inclinación idéntica a "Discover Taipei" */
+            margin-bottom: 1rem; 
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+        }
+        .tour-header p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; color: #f0fdf4; }
 
         /* --- MAIN LAYOUT --- */
         .tour-container { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; padding: 4rem 5%; max-width: 1200px; margin: 0 auto; }
@@ -82,10 +89,10 @@
         .info-badge { display: flex; align-items: center; gap: 0.5rem; background: var(--light); padding: 0.8rem 1.2rem; border-radius: 10px; font-weight: 500; font-size: 0.95rem; }
         .info-badge i { color: var(--primary); font-size: 1.2rem; }
 
-        /* --- LISTS --- */
+        /* --- LISTS & UNIFIED ICONS --- */
         ul.custom-list { list-style: none; }
         ul.custom-list li { margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 0.8rem; }
-        ul.custom-list li i { margin-top: 5px; }
+        ul.custom-list li i { margin-top: 5px; font-size: 1.1rem; width: 20px; text-align: center; }
         .fa-check-circle { color: var(--wa-color); }
         .fa-times-circle { color: #ef4444; }
 
@@ -107,8 +114,8 @@
         .footer-col-center { text-align: center; }
         .footer-col h4 { margin-bottom: 1.5rem; color: var(--primary); }
         .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 0.8rem; color: var(--text-main); }
-        .footer-col ul li i { margin-right: 10px; color: var(--primary); }
+        .footer-col ul li { margin-bottom: 0.8rem; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
+        .footer-col ul li i { color: var(--primary); width: 20px; text-align: center; }
         .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.05); font-size: 0.9rem; color: var(--text-muted); }
 
         /* --- FLOATING BUTTON --- */
