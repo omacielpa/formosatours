@@ -131,45 +131,50 @@
             text-align: center;
             padding: 0 5%;
             overflow: hidden;
-            background-color: var(--dark); /* Fondo negro de respaldo */
+            background-color: var(--dark);
         }
         
-        /* Capa superior fija para el degradado oscuro original */
+        /* Capa superior fija para el degradado oscuro (Más claro ahora) */
         .hero::after {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.8));
-            z-index: 1;
+            background: linear-gradient(rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 0.5));
+            z-index: 2;
             pointer-events: none;
         }
 
-        /* Capa base para los fondos animados */
-        .hero::before {
+        /* Capas base para fondos animados cruzados sin pasar por negro */
+        .hero::before, .hero-bg-layer {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             background-position: center;
             background-size: cover;
             z-index: 0;
-            animation: heroSlideshow 25s infinite ease-in-out;
         }
 
-        /* Animación con transiciones de desvanecimiento (fade) calculadas para 5 imágenes */
-        @keyframes heroSlideshow {
-            0%, 16% { background-image: url('wallpaper-1.avif'); opacity: 1; }
-            20% { opacity: 0; } /* Suaviza el cambio desvaneciendo a negro momentáneamente */
-            21%, 36% { background-image: url('wallpaper-2.avif'); opacity: 1; }
-            40% { opacity: 0; }
-            41%, 56% { background-image: url('wallpaper-3.avif'); opacity: 1; }
-            60% { opacity: 0; }
-            61%, 76% { background-image: url('wallpaper-4.avif'); opacity: 1; }
-            80% { opacity: 0; }
-            81%, 96% { background-image: url('wallpaper-5.avif'); opacity: 1; }
-            100% { opacity: 0; background-image: url('wallpaper-1.avif'); }
+        .hero::before {
+            animation: heroSlideshowA 25s infinite ease-in-out;
         }
 
-        .hero-content { max-width: 800px; color: var(--white); animation: fadeInUp 1s ease; position: relative; z-index: 2; }
+        @keyframes heroSlideshowA {
+            0%, 16% { background-image: url('wallpaper-1.avif'); }
+            20%, 36% { background-image: url('wallpaper-2.avif'); }
+            40%, 56% { background-image: url('wallpaper-3.avif'); }
+            60%, 76% { background-image: url('wallpaper-4.avif'); }
+            80%, 96% { background-image: url('wallpaper-5.avif'); }
+            100% { background-image: url('wallpaper-1.avif'); }
+        }
+
+        /* Contenido con sombra paralela añadida para legibilidad */
+        .hero-content { 
+            max-width: 800px; 
+            color: var(--white); 
+            animation: fadeInUp 1s ease; 
+            position: relative; 
+            z-index: 3; 
+        }
 
         .hero h1 .cursive-text {
             font-family: 'Water Brush', cursive;
@@ -179,6 +184,7 @@
             line-height: 1;
             margin-bottom: 0.5rem;
             transform: skewY(-4deg) rotate(-2deg); 
+            text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.7);
         }
 
         /* AS A LOCAL: Blanco, Bold y Grande */
@@ -191,9 +197,15 @@
             display: block;
             color: var(--white);
             margin-top: 5px;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.8);
         }
 
-        .hero p { font-size: 1.2rem; margin-bottom: 2.5rem; font-weight: 300; }
+        .hero p { 
+            font-size: 1.2rem; 
+            margin-bottom: 2.5rem; 
+            font-weight: 300; 
+            text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.8);
+        }
         .hero-btns { display: flex; gap: 1rem; justify-content: center; margin-bottom: 1.5rem; flex-wrap: wrap; }
         .trust-microcopy { font-size: 0.9rem; color: #cbd5e1; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
 
@@ -371,6 +383,7 @@
     </nav>
 
     <section class="hero">
+        <div class="hero-bg-layer"></div>
         <div class="hero-content">
             <h1>
                 <span class="cursive-text">Discover Taipei</span>
