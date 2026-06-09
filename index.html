@@ -121,7 +121,7 @@
         .nav-links a:hover { color: var(--primary); }
         .mobile-menu { display: none; font-size: 1.5rem; color: var(--white); cursor: pointer; }
 
-        /* --- HERO SECTION WITH TRUE SLIDESHOW FADE --- */
+        /* --- HERO SECTION WITH CONTINUOUS SMOOTH FADE --- */
         .hero {
             height: 100vh;
             position: relative;
@@ -134,17 +134,17 @@
             background-color: var(--dark);
         }
         
-        /* Capa superior fija para el degradado oscuro (Más claro ahora) */
+        /* Filtro oscuro superior para legibilidad */
         .hero::after {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 0.5));
+            background: linear-gradient(rgba(15, 23, 42, 0.35), rgba(15, 23, 42, 0.55));
             z-index: 2;
             pointer-events: none;
         }
 
-        /* Capas base para fondos animados cruzados sin pasar por negro */
+        /* Capas de fondo animadas en paralelo */
         .hero::before, .hero-bg-layer {
             content: '';
             position: absolute;
@@ -152,19 +152,25 @@
             background-position: center;
             background-size: cover;
             z-index: 0;
+            animation: heroSlideshow 25s infinite ease-in-out;
         }
 
-        .hero::before {
-            animation: heroSlideshowA 25s infinite ease-in-out;
+        /* La capa secundaria ejecuta la misma secuencia pero retrasada exactamente un ciclo de imagen (5s) */
+        .hero-bg-layer {
+            animation-delay: -5s;
         }
 
-        @keyframes heroSlideshowA {
-            0%, 16% { background-image: url('wallpaper-1.avif'); }
-            20%, 36% { background-image: url('wallpaper-2.avif'); }
-            40%, 56% { background-image: url('wallpaper-3.avif'); }
-            60%, 76% { background-image: url('wallpaper-4.avif'); }
-            80%, 96% { background-image: url('wallpaper-5.avif'); }
-            100% { background-image: url('wallpaper-1.avif'); }
+        @keyframes heroSlideshow {
+            0%, 100% { background-image: url('wallpaper-1.avif'); opacity: 1; }
+            16%      { background-image: url('wallpaper-1.avif'); opacity: 1; }
+            20%      { opacity: 0; } /* Se oculta suavemente revelando la capa de abajo */
+            36%      { background-image: url('wallpaper-2.avif'); opacity: 0; }
+            40%      { opacity: 1; } /* Reaparece de forma invisible con la nueva imagen */
+            56%      { background-image: url('wallpaper-3.avif'); opacity: 1; }
+            60%      { opacity: 0; }
+            76%      { background-image: url('wallpaper-4.avif'); opacity: 0; }
+            80%      { opacity: 1; }
+            96%      { background-image: url('wallpaper-5.avif'); opacity: 1; }
         }
 
         /* Contenido con sombra paralela añadida para legibilidad */
