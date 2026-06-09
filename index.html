@@ -131,7 +131,7 @@
             text-align: center;
             padding: 0 5%;
             overflow: hidden;
-            background-color: var(--dark);
+            background-color: #1e293b; 
         }
         
         /* Filtro oscuro superior para legibilidad */
@@ -144,8 +144,8 @@
             pointer-events: none;
         }
 
-        /* Capas de fondo animadas en paralelo */
-        .hero::before, .hero-bg-layer {
+        /* Un solo pseudo-elemento animado */
+        .hero::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -153,24 +153,55 @@
             background-size: cover;
             z-index: 0;
             animation: heroSlideshow 25s infinite ease-in-out;
-        }
-
-        /* La capa secundaria ejecuta la misma secuencia pero retrasada exactamente un ciclo de imagen (5s) */
-        .hero-bg-layer {
-            animation-delay: -5s;
+            transition: background-image 1s ease-in-out;
         }
 
         @keyframes heroSlideshow {
-            0%, 100% { background-image: url('wallpaper-1.avif'); opacity: 1; }
-            16%      { background-image: url('wallpaper-1.avif'); opacity: 1; }
-            20%      { opacity: 0; } /* Se oculta suavemente revelando la capa de abajo */
-            36%      { background-image: url('wallpaper-2.avif'); opacity: 0; }
-            40%      { opacity: 1; } /* Reaparece de forma invisible con la nueva imagen */
-            56%      { background-image: url('wallpaper-3.avif'); opacity: 1; }
-            60%      { opacity: 0; }
-            76%      { background-image: url('wallpaper-4.avif'); opacity: 0; }
-            80%      { opacity: 1; }
-            96%      { background-image: url('wallpaper-5.avif'); opacity: 1; }
+            /* IMAGEN 1: 0% a 16% (~4s). Difuminado: 16% a 20% (~1s) */
+            0%, 16% { 
+                background-image: url('wallpaper-1.avif'); 
+                opacity: 1;
+            }
+            20% { 
+                opacity: 0.8; 
+            }
+
+            /* IMAGEN 2: 20% a 36% (~4s). Difuminado: 36% a 40% (~1s) */
+            20.001%, 36% { 
+                background-image: url('wallpaper-2.avif'); 
+                opacity: 1;
+            }
+            40% { 
+                opacity: 0.8;
+            }
+
+            /* IMAGEN 3: 40% a 56% (~4s). Difuminado: 56% a 60% (~1s) */
+            40.001%, 56% { 
+                background-image: url('wallpaper-3.avif'); 
+                opacity: 1;
+            }
+            60% { 
+                opacity: 0.8;
+            }
+
+            /* IMAGEN 4: 60% a 76% (~4s). Difuminado: 76% a 80% (~1s) */
+            60.001%, 76% { 
+                background-image: url('wallpaper-4.avif'); 
+                opacity: 1;
+            }
+            80% { 
+                opacity: 0.8;
+            }
+
+            /* IMAGEN 5: 80% a 96% (~4s). Difuminado final al reiniciar: 96% al 100% (~1s) */
+            80.001%, 96% { 
+                background-image: url('wallpaper-5.avif'); 
+                opacity: 1;
+            }
+            100% { 
+                background-image: url('wallpaper-1.avif');
+                opacity: 1;
+            }
         }
 
         /* Contenido con sombra paralela añadida para legibilidad */
@@ -389,7 +420,6 @@
     </nav>
 
     <section class="hero">
-        <div class="hero-bg-layer"></div>
         <div class="hero-content">
             <h1>
                 <span class="cursive-text">Discover Taipei</span>
