@@ -62,7 +62,34 @@
             height: 180px;
             object-fit: cover;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            cursor: zoom-in;
+            transition: var(--transition);
         }
+        .image-gallery img:hover {
+            transform: scale(1.02);
+        }
+
+        /* --- LIGHTBOX --- */
+        #lightbox {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            cursor: zoom-out;
+        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
         /* --- QUICK INFO --- */
         .quick-info { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2rem; }
@@ -130,14 +157,15 @@
         <div class="tour-content">
 
             <div class="image-gallery">
-                <img src="20260113_153347.jpg" alt="Chiang Kai-shek Memorial Hall - Taipei Tour">
-                <img src="20251203_193616.jpg" alt="Taipei 101 at night - Taipei Tour">
-                <img src="1-hl-tour.jpg" alt="Taipei City Highlights">
-                <img src="gallery-1.jpg" alt="Taipei Street View - Taipei Tour">
-                <img src="20250915_163600.jpg" alt="Liberty Square Gate - Taipei Tour">
-                <img src="gallery-6.jpg" alt="Longshan Temple interior - Taipei Tour">
-                <img src="gallery-7.jpg" alt="Longshan Temple entrance - Taipei Tour">
-                <img src="gallery-15.jpg" alt="Taipei Tour Highlights">
+                <img src="taipei-hl-1.jpg" alt="Taipei City Highlights 1" onclick="openLightbox(this)">
+                <img src="taipei-hl-2.jpg" alt="Taipei City Highlights 2" onclick="openLightbox(this)">
+                <img src="taipei-hl-3.jpg" alt="Taipei City Highlights 3" onclick="openLightbox(this)">
+                <img src="taipei-hl-4.jpg" alt="Taipei City Highlights 4" onclick="openLightbox(this)">
+                <img src="taipei-hl-5.jpg" alt="Taipei City Highlights 5" onclick="openLightbox(this)">
+                <img src="taipei-hl-6.jpg" alt="Taipei City Highlights 6" onclick="openLightbox(this)">
+                <img src="taipei-hl-7.jpg" alt="Taipei City Highlights 7" onclick="openLightbox(this)">
+                <img src="taipei-hl-8.jpg" alt="Taipei City Highlights 8" onclick="openLightbox(this)">
+                <img src="taipei-hl-9.jpg" alt="Taipei City Highlights 9" onclick="openLightbox(this)">
             </div>
 
             <section>
@@ -283,6 +311,8 @@
 
     </main>
 
+    <div id="lightbox" onclick="closeLightbox()"><img id="lightbox-img" src="" alt="Expanded Image"></div>
+
     <footer>
         <div class="footer-grid">
             <div class="footer-col footer-col-center">
@@ -299,7 +329,7 @@
             </div>
         </div>
         <div class="copyright">
-            &copy; 2026 Formosa tours by Alejandro Maciel.
+            © 2026 Formosa tours by Alejandro Maciel.
             © 2026 Formosa tours by Alejandro Maciel.
         </div>
     </footer>
@@ -308,5 +338,19 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <script>
+        function openLightbox(element) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = element.src;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    </script>
 </body>
 </html>
